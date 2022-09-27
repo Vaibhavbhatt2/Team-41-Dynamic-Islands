@@ -1,0 +1,26 @@
+<h2> Favorites List</h2><br>
+
+<table class = "table table-striped">
+    <thead>
+        <tr>
+            <th> Title</th>
+            <th> Author Name </th>
+            <th> Publish Date</th>
+            <th> Publish year </th>
+            <th> Publisher </th>
+            <th> Language </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let b of book" >
+           
+            <td> {{ b.title }} </td>
+            <td> {{ b.authorName }} </td>
+            <td> {{ b.publish_date }} </td>
+            <td> {{ b.publish_year }} </td>
+            <td> {{ b.publisher}} </td>
+            <td> {{ b.language }} </td>
+            <td><button (click) = "deleteBook(b.id)" class = "btn btn-dark" style="margin-left: 10px"> Delete</button></td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,40 @@
+
+<section class="contact_section layout_padding">
+  
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 ">
+          <div class="heading_container ">
+            <h2 class="">
+              Login
+            </h2>
+          </div>
+          
+          
+          <form action="#" [formGroup]="userForm"(ngSubmit) = "onSubmit()">
+            <div>
+              <input type="text" placeholder="Username"  class ="form-control" id="name" name="name" [(ngModel)] = "user.name" required formControlName="name">
+              <div class="alert alert-danger" *ngIf="name && name.invalid && name.touched">Length must be atleast 4</div>
+            </div>
+            <div>
+              <input type="password" placeholder="Password" class ="form-control" id="password" name="password" [(ngModel)] = "user.password" required formControlName="password">
+              <div   class="alert alert-danger" *ngIf="password && password.invalid && password.touched">Length must be atleast 6</div>
+            </div>
+            <div class="btn-box">
+              <button class = "btn btn-success" type ="submit" >Submit</button>
+            </div>
+            
+          </form>
+          <br>
+          <!--<a href="update/">Forget Password</a>-->
+        </div>
+        <div class="col-md-6">
+          <div class="img-box">
+            <img src="../../assets/images/contact-img.png" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </section>
+  

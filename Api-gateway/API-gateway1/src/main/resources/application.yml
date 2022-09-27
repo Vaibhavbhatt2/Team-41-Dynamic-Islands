@@ -1,0 +1,22 @@
+server:
+  port: 8083
+  
+spring:
+  application:
+    name: API_GATEWAY
+    
+cloud:
+  gateway:
+   default-filters:
+          - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE
+   globalcors:
+          cors-configurations:
+            '[/**]':
+              allowedOrigins: "http://localhost:4200/"
+   routes:
+      - id:userservice
+        uri:lb://http://localhost:8081/
+        predicates:- Path=/api/v1/home/**
+      - id:BookDetailsService
+        uri:lb://http://localhost:8082/
+        predicates:- Path=/api/v1/home/**

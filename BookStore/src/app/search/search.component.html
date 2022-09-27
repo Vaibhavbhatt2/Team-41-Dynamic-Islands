@@ -1,0 +1,34 @@
+<div class="container-fluid" *ngIf="login">
+    <div style="width: 500px; align-content: center; margin-top: 20px; border: 1px solid #c3c3c3; border-radius: 10px; flex-direction: row;">
+        <form class="search_form" [formGroup]="searchForm" (submit)="search()">
+            <input type="text" class="form-control" placeholder="Search here..." formControlName="data">
+            <button class="" type="submit">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </button>
+        </form>
+    </div>
+<ul *ngFor="let result of results" >
+    <div class="container mt-4" >
+        <div class="row" >
+            <div class="col-md-10">
+                <div class="card p-3" style="border: 2px solid #063547;
+                padding: 10px;
+                border-radius: 10px 50px;">
+                    <br>
+                    <!--<h3 >Username: <span style="font-family:Goudy Old Style">{{name}}</span></h3>-->
+                        <h5 >Title: <span style="font-family:Goudy Old Style">{{result.title}}</span></h5>
+                        <h5 >Author name: <span style="font-family:Goudy Old Style">{{result.author_name}} </span> </h5>
+                        <h5 >Publish date: <span style="font-family:Goudy Old Style">{{result.publish_date}}</span></h5>
+                        <!--<h5 >Publish publisher: <span style="font-family:Goudy Old Style">{{result.publisher}</span></h5>-->
+                        <h5 >Publish language: <span style="font-family:Goudy Old Style">{{result.language}}</span></h5>
+                        <br> 
+                        <button type="button" class="btn btn-primary" style="background-color: #063547;" (click)="wishlistdata(result.title,result.author_name,result.publish_date,result.publisher,result.language,result.first_publish_year)">Add to wishlist</button> 
+                        <br>
+                </div>
+            </div>
+        </div>
+    </div>
+            
+    
+</ul>
+
